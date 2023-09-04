@@ -1,10 +1,9 @@
-import { QuestionStyle } from "./QuestionStyle";
+import { QuestionStyle } from './QuestionStyle';
 
-const Question: React.FC = () => {
-
+const Question: React.FC<{ question: String }> = ({ question }) => {
   return (
     <QuestionStyle>
-      <div>Question</div>
+      <div>{question}</div>
     </QuestionStyle>
   );
 };
