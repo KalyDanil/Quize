@@ -1,4 +1,4 @@
-import { IAnswerProps } from '../../../types';
+import { IAnswerProps } from '../../../../types';
 import { AnswerStyle } from './AnswerStyle';
 
 const Answer: React.FC<IAnswerProps> = ({
@@ -12,13 +12,22 @@ const Answer: React.FC<IAnswerProps> = ({
   const onClick = () => {
     const questionsDataCopy = [...questionsData];
     const questionIndex = questionsDataCopy.findIndex(
-      (question) => (question.id = questionId),
+      (question) => question.id === questionId,
     );
-    const question = questionsDataCopy[questionIndex];
-    const answerIndex = question.answers.findIndex(
-      (item) => (item.answer = answer),
+    const questionObj = { ...questionsDataCopy[questionIndex] };
+    const answerIndex = questionObj.answers.findIndex(
+      (item) => item.answer === answer,
     );
-    question.answers[answerIndex].isSelected = !isSelected;
+    questionObj.answers[answerIndex].isSelected = !isSelected;
+    const answerObj = questionObj.answers[answerIndex];
+    answerObj.isSelected = !isSelected;
+    if (!isSelected) {
+      questionObj.answers.forEach((item) => {
+        if (item.answer !== answer) {
+          item.isSelected = false;
+        }
+      });
+    }
     setQuestionsData(questionsDataCopy);
   };
 

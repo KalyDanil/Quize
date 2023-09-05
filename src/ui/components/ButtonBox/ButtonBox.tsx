@@ -13,7 +13,7 @@ const ButtonBox: React.FC<IButtonBoxPros> = ({
   };
 
   const onForwardClick = () => {
-    if (questionNumber + 1 !== data.length) {
+    if (questionNumber !== data.length) {
       setQuestionNumber(questionNumber + 1);
     }
   };

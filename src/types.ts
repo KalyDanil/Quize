@@ -29,3 +29,7 @@ export interface IAnswersBoxProps {
   setQuestionsData: (questionsData: IQuestionData[]) => void;
   questionNumber: number;
 }
+
+export interface IResultProps {
+  questionsData: IQuestionData[];
+}

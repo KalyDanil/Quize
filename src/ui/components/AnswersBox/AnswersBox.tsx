@@ -1,5 +1,5 @@
 import { IAnswersBoxProps } from '../../../types';
-import Answer from '../Answer';
+import Answer from './Answer';
 import { AnswersBoxStyle } from './AnswersBoxStyle';
 
 const AnswersBox: React.FC<IAnswersBoxProps> = ({
