@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const ButtonBoxStyle = styled.div`
-  width: 200px;
+  width: 250px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
   .buttonBox {
     &__button {
-      width: 70px;
+      min-width: 70px;
       padding: 5px 5px 5px 5px;
       font-size: 20px;
       border: none;
@@ -16,6 +16,11 @@ export const ButtonBoxStyle = styled.div`
       color: white;
       border-radius: 10px;
       cursor: pointer;
+
+      &-disabled {
+        opacity: 0.5;
+        cursor: unset;
+      }
     }
   }
 `;

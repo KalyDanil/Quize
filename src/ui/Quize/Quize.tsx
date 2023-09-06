@@ -14,35 +14,30 @@ const Quize: React.FC = () => {
 
   useEffect(() => {
     setQuestionsData(data);
-  }, [data]); // eslint-disable-line
+  }, [data]);
 
   return (
     <QuizeStyle>
+      <Сompleteness questionNumber={questionNumber} />
       {questionNumber !== questionsData.length ? (
         <>
           {' '}
-          <Сompleteness questionNumber={questionNumber} />
           <Question question={data[questionNumber].question} />
           <AnswersBox
             questionsData={questionsData}
             questionNumber={questionNumber}
             setQuestionsData={setQuestionsData}
           />
-          <ButtonBox
-            questionNumber={questionNumber}
-            setQuestionNumber={setQuestionNumber}
-          />
         </>
       ) : (
         <>
-          <Сompleteness questionNumber={questionNumber} />
           <Result questionsData={questionsData} />
-          <ButtonBox
-            questionNumber={questionNumber}
-            setQuestionNumber={setQuestionNumber}
-          />
         </>
       )}
+      <ButtonBox
+        questionNumber={questionNumber}
+        setQuestionNumber={setQuestionNumber}
+      />
     </QuizeStyle>
   );
 };

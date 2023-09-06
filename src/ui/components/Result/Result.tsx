@@ -1,5 +1,5 @@
 import { IResultProps } from '../../../types';
-import QuestionsBox from './QuestionsBox';
+import QuestionAndAnswer from './QuestionAndAnswer';
 import { ResultStyle } from './ResultStyle';
 
 const Result: React.FC<IResultProps> = ({ questionsData }) => {
@@ -10,12 +10,21 @@ const Result: React.FC<IResultProps> = ({ questionsData }) => {
     }
     return sum;
   }, 0);
+
+  const questionAndAnswerList = questionsData.map((item, index) => (
+    <QuestionAndAnswer
+      id={item.id}
+      question={item.question}
+      answers={item.answers}
+    />
+  ));
+
   return (
     <ResultStyle>
       <div className="result__header">
         Результат {correctAnswersNumber}/{quesntionNumber}
       </div>
-      <QuestionsBox />
+      <div className="result__list">{questionAndAnswerList}</div>
     </ResultStyle>
   );
 };
